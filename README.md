@@ -6,7 +6,7 @@ Atualmente somente o Part.iff e somente Leitura.
 
 Minha idéia atual não é criar um super editor mas ajudar a comunidade na leitura dos arquivos.
 
--- Atualizações 24/07.
+Atualizações 24/07.
 
 - Criado o Library PangyaFileCore.
 Com isto, toda estrutura e responsabilidade de ler os arquivos é desta biblioteca.
