@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PangyaFileCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,26 +20,68 @@ namespace Pangya_IffManger
 
         private void btn_openFile_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            OpenFileDialog openFileDialog = new OpenFileDialog();
 
-            openFileDialog1.InitialDirectory = "c:\\";
-            openFileDialog1.Filter = "Pangya Part.iff (Part*.iff)|Part*.iff";
-            openFileDialog1.RestoreDirectory = true;
+            openFileDialog.Filter = "Pangya File (*.iff)|*.iff";
+            //+ "Character (Character*.iff)|Character*.iff";
 
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            openFileDialog.RestoreDirectory = true;
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
+                string filePath = openFileDialog.FileName;
+                string fileName = openFileDialog.SafeFileName.ToLower();
+
                 try
                 {
-                    var part = new PartManager();
-
-                    //Carrega part.iff
-                    var result = part.Load(openFileDialog1.FileName);
-
-                    this.dataGridView1.DataSource = result;
+                    switch (fileName)
+                    {
+                        case "character.iff":
+                            {
+                                PangyaFile<Character> arquivo = new Character();
+                                this.dataGridView1.DataSource = arquivo.GetFromFile(filePath);
+                            }
+                            break;
+                        case "part.iff":
+                            {
+                                PangyaFile<Part> arquivo = new Part();
+                                this.dataGridView1.DataSource = arquivo.GetFromFile(filePath);
+                            }
+                            break;
+                        case "card.iff":
+                            {
+                                PangyaFile<Card> arquivo = new Card();
+                                this.dataGridView1.DataSource = arquivo.GetFromFile(filePath);
+                            }
+                            break;
+                        case "caddie.iff":
+                            {
+                                PangyaFile<Caddie> arquivo = new Caddie();
+                                this.dataGridView1.DataSource = arquivo.GetFromFile(filePath);
+                            }
+                            break;
+                        case "setitem.iff":
+                            {
+                                PangyaFile<SetItem> arquivo = new SetItem();
+                                this.dataGridView1.DataSource = arquivo.GetFromFile(filePath);
+                            }
+                            break;
+                        case "mascot.iff":
+                            {
+                                PangyaFile<Mascot> arquivo = new Mascot();
+                                this.dataGridView1.DataSource = arquivo.GetFromFile(filePath);
+                            }
+                            break;
+                        default:
+                            {
+                                MessageBox.Show($"A leitura de {openFileDialog.SafeFileName} não implementado, escolha outro arquivo.");
+                            }
+                            break;
+                    }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
+                    MessageBox.Show("Erro ao tentar ler o arquivo. Mensagem: " + ex.Message);
                 }
             }
         }

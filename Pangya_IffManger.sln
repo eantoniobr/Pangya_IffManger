@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pangya_IffManger", "Pangya_IffManger\Pangya_IffManger.csproj", "{4C960C37-334F-46D5-AB24-52FDF07BBE07}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PangyaFileCore", "PangyaFileCore\PangyaFileCore.csproj", "{99DD904A-8CFB-4E4A-8100-075324C08E89}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{4C960C37-334F-46D5-AB24-52FDF07BBE07}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C960C37-334F-46D5-AB24-52FDF07BBE07}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C960C37-334F-46D5-AB24-52FDF07BBE07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99DD904A-8CFB-4E4A-8100-075324C08E89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99DD904A-8CFB-4E4A-8100-075324C08E89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99DD904A-8CFB-4E4A-8100-075324C08E89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99DD904A-8CFB-4E4A-8100-075324C08E89}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
